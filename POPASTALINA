@@ -1,6 +1,5 @@
 local ui_options = {
 	main_color = Color3.fromRGB(41, 74, 122),
-    background_transparency = 0.1,
 	min_size = Vector2.new(400, 300),
 	toggle_key = Enum.KeyCode.RightShift,
 	can_resize = true,
@@ -111,9 +110,9 @@ Window.Active = true
 Window.BackgroundColor3 = Color3.new(1, 1, 1)
 Window.BackgroundTransparency = 0.8
 Window.ClipsDescendants = true
-Window.Position = UDim2.new(0, 20, 0, 20)
+Window.Position = UDim2.new(0, 30, 0, 10)
 Window.Selectable = true
-Window.Size = UDim2.new(0, 200, 0, 200)
+Window.Size = UDim2.new(0, 300, 0, 300)
 Window.ScaleType = Enum.ScaleType.Slice
 Window.SliceCenter = Rect.new(12, 12, 12, 12)
 
