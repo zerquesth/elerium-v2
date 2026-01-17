@@ -932,17 +932,9 @@ function bd:AddWindow(bi, bj)
     e.Size = UDim2.new(0, bj.min_size.X, 0, bj.min_size.Y)
     e.ZIndex = e.ZIndex + bc * 10
     
-    -- Добавляем закругленные углы для окна
     local corner = Instance.new("UICorner")
     corner.CornerRadius = UDim.new(0, 12)
     corner.Parent = e
-    
-    -- Добавляем белую обводку для окна
-    local stroke = Instance.new("UIStroke")
-    stroke.Color = Color3.new(1, 1, 1) -- Белый цвет
-    stroke.Thickness = 1.5
-    stroke.Transparency = 0.2
-    stroke.Parent = e
     
     do
         local g = e:FindFirstChild("Bar")
@@ -966,16 +958,8 @@ function bd:AddWindow(bi, bj)
         bo.CornerRadius = UDim.new(0, 5)
         bo.Parent = g
         
-        -- Добавляем обводку для заголовка
-        local barStroke = Instance.new("UIStroke")
-        barStroke.Color = Color3.new(1, 1, 1)
-        barStroke.Thickness = 1
-        barStroke.Transparency = 0.3
-        barStroke.Parent = g
-        
         if h then
             h.Position = UDim2.new(0, 5, 0, bn)
-            -- Закругляем углы кнопки toggle
             local toggleCorner = Instance.new("UICorner")
             toggleCorner.CornerRadius = UDim.new(0, 4)
             toggleCorner.Parent = h
@@ -995,13 +979,6 @@ function bd:AddWindow(bi, bj)
             local br = Instance.new("UICorner")
             br.CornerRadius = UDim.new(0, 6)
             br.Parent = m
-            
-            -- Обводка для панели выбора вкладок
-            local tabSelectionStroke = Instance.new("UIStroke")
-            tabSelectionStroke.Color = Color3.new(1, 1, 1)
-            tabSelectionStroke.Thickness = 1
-            tabSelectionStroke.Transparency = 0.4
-            tabSelectionStroke.Parent = m
             
             m.ImageTransparency = 0.4
             aH(m, bj.title_bar, 45)
@@ -1184,13 +1161,6 @@ function bd:AddWindow(bi, bj)
             bX.CornerRadius = UDim.new(0, 4)
             bX.Parent = bV
             
-            -- Обводка для кнопок вкладок
-            local tabButtonStroke = Instance.new("UIStroke")
-            tabButtonStroke.Color = Color3.new(1, 1, 1)
-            tabButtonStroke.Thickness = 1
-            tabButtonStroke.Transparency = 0.4
-            tabButtonStroke.Parent = bV
-            
             bV.TextColor3 = Color3.fromRGB(200, 200, 200)
             bV.TextSize = 13
             bV.Font = Enum.Font.FredokaOne
@@ -1219,12 +1189,11 @@ function bd:AddWindow(bi, bj)
             c0.Size = UDim2.new(1, 0, 1, 0)
             c0.BackgroundTransparency = 1
             
-            -- Закругляем углы содержимого вкладки
             local tabContentCorner = Instance.new("UICorner")
             tabContentCorner.CornerRadius = UDim.new(0, 8)
             tabContentCorner.Parent = c0
             
-            local c1 = Instance.new("Frame") -- Изменено с ScrollingFrame на Frame
+            local c1 = Instance.new("Frame")
             c1.Name = "TabScroller"
             c1.Parent = c0
             c1.Size = UDim2.new(1, 0, 1, 0)
@@ -1378,7 +1347,6 @@ function bd:AddWindow(bi, bj)
                     cm.Size = UDim2.new(0, b1(cm), 0, 20)
                     cm.ZIndex = cm.ZIndex + bc * 10
                     
-                    -- Закругляем углы для меток
                     local labelCorner = Instance.new("UICorner")
                     labelCorner.CornerRadius = UDim.new(0, 4)
                     labelCorner.Parent = cm
@@ -1401,17 +1369,9 @@ function bd:AddWindow(bi, bj)
                     aH(cp, bj.title_bar, 0)
                     b5.TextColor3 = Color3.new(1, 1, 1)
                     
-                    -- Закругляем углы кнопки
                     local buttonCorner = Instance.new("UICorner")
                     buttonCorner.CornerRadius = UDim.new(0, 6)
                     buttonCorner.Parent = b5
-                    
-                    -- Обводка для кнопки
-                    local buttonStroke = Instance.new("UIStroke")
-                    buttonStroke.Color = Color3.new(1, 1, 1)
-                    buttonStroke.Thickness = 1
-                    buttonStroke.Transparency = 0.3
-                    buttonStroke.Parent = b5
                     
                     b5.MouseButton1Click:Connect(
                         function()
@@ -1437,7 +1397,6 @@ function bd:AddWindow(bi, bj)
                     ct.ImageTransparency = bj.title_bar_transparency or 0
                     aH(ct, bj.title_bar, 0)
                     
-                    -- Закругляем углы переключателя
                     local switchCorner = Instance.new("UICorner")
                     switchCorner.CornerRadius = UDim.new(0, 6)
                     switchCorner.Parent = cs
@@ -1476,7 +1435,6 @@ function bd:AddWindow(bi, bj)
                     cy.TextColor3 = Color3.new(1, 1, 1)
                     cy.PlaceholderColor3 = Color3.fromRGB(200, 200, 200)
                     
-                    -- Закругляем углы текстового поля
                     local textboxCorner = Instance.new("UICorner")
                     textboxCorner.CornerRadius = UDim.new(0, 6)
                     textboxCorner.Parent = cy
@@ -1507,7 +1465,6 @@ function bd:AddWindow(bi, bj)
                     cE.Parent = c1 or c0
                     cE.ZIndex = cE.ZIndex + bc * 10
                     
-                    -- Закругляем углы слайдера
                     local sliderCorner = Instance.new("UICorner")
                     sliderCorner.CornerRadius = UDim.new(0, 6)
                     sliderCorner.Parent = cE
@@ -1607,7 +1564,6 @@ function bd:AddWindow(bi, bj)
                     ax:GetChildren()[1].ZIndex = ax:GetChildren()[1].ZIndex + bc * 10
                     bi.ZIndex = bi.ZIndex + bc * 10
                     
-                    -- Закругляем углы keybind
                     local keybindCorner = Instance.new("UICorner")
                     keybindCorner.CornerRadius = UDim.new(0, 6)
                     keybindCorner.Parent = cQ
@@ -1682,13 +1638,6 @@ function bd:AddWindow(bi, bj)
                     local d0 = Instance.new("UICorner")
                     d0.CornerRadius = UDim.new(0, 6)
                     d0.Parent = cY
-                    
-                    -- Обводка для выпадающего списка
-                    local dropdownStroke = Instance.new("UIStroke")
-                    dropdownStroke.Color = Color3.new(1, 1, 1)
-                    dropdownStroke.Thickness = 1
-                    dropdownStroke.Transparency = 0.3
-                    dropdownStroke.Parent = cX
                     
                     cZ.BackgroundTransparency = 1
                     cZ.Position = UDim2.new(0, 0, 0, 0)
@@ -1783,7 +1732,6 @@ function bd:AddWindow(bi, bj)
                         bY.Transparency = 0.3
                         bY.Parent = aZ
                         
-                        -- Закругляем углы кнопок в выпадающем списке
                         local dropdownButtonCorner = Instance.new("UICorner")
                         dropdownButtonCorner.CornerRadius = UDim.new(0, 4)
                         dropdownButtonCorner.Parent = aZ
@@ -1879,7 +1827,6 @@ function bd:AddWindow(bi, bj)
                     df.Parent = c1 or c0
                     df.ZIndex = df.ZIndex + bc * 10
                     
-                    -- Закругляем углы color picker
                     local colorPickerCorner = Instance.new("UICorner")
                     colorPickerCorner.CornerRadius = UDim.new(0, 8)
                     colorPickerCorner.Parent = df
@@ -1995,7 +1942,6 @@ function bd:AddWindow(bi, bj)
                     local c1 = c0:FindFirstChild("TabScroller")
                     dv.Parent = c1 or c0
                     
-                    -- Закругляем углы горизонтального контейнера
                     local horizontalCorner = Instance.new("UICorner")
                     horizontalCorner.CornerRadius = UDim.new(0, 6)
                     horizontalCorner.Parent = dv
@@ -2026,7 +1972,6 @@ function bd:AddWindow(bi, bj)
                     local cp = b5:GetChildren()[1]
                     cp.ImageColor3 = bj.main_color
                     
-                    -- Закругляем углы папки
                     local folderCorner = Instance.new("UICorner")
                     folderCorner.CornerRadius = UDim.new(0, 6)
                     folderCorner.Parent = dz
