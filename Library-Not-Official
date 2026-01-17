@@ -109,7 +109,7 @@ e.ClipsDescendants = true
 e.Position = UDim2.new(0, 20, 0, 20)
 e.Selectable = true
 e.Size = UDim2.new(0, 200, 0, 200)
-e.Image = "rbxassetid://130942559215723"
+e.Image = "rbxassetid://115954865818854"
 e.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
 e.ScaleType = Enum.ScaleType.Slice
 e.SliceCenter = Rect.new(12, 12, 12, 12)
@@ -135,7 +135,7 @@ h.Position = UDim2.new(0, 5, 0, -2)
 h.Rotation = 0
 h.Size = UDim2.new(0, 20, 0, 20)
 h.ZIndex = 2
-h.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=122599866509231"
+h.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=117019809594968"
 i.Name = "Base"
 i.Parent = g
 i.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
