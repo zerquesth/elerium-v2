@@ -1098,12 +1098,23 @@ function bd:AddWindow(bi, bj)
         local bG = true
         local bH = {}
         local bI = e.AbsoluteSize.Y
+        
+        -- Добавляем переменную для отслеживания текущей анимации
+        local currentToggleTween = nil
+        
         bE.MouseButton1Click:Connect(
             function()
                 if not bG then
                     return
                 end
                 bG = false
+                
+                -- Отменяем предыдущую анимацию, если она еще выполняется
+                if currentToggleTween then
+                    currentToggleTween:Cancel()
+                    currentToggleTween = nil
+                end
+                
                 if bF then
                     bH = {}
                     local bv = e:FindFirstChild("Tabs")
@@ -1116,9 +1127,11 @@ function bd:AddWindow(bi, bj)
                     f.Active = false
                     bI = e.AbsoluteSize.Y
                     
-                    -- Убрана анимация вращения
+                    -- Сразу устанавливаем угол без анимации
                     bE.Rotation = -180
-                    local aG = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, 26)}, bj.tween_time)
+                    
+                    -- Запускаем анимацию изменения размера
+                    currentToggleTween = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, 26)}, bj.tween_time)
                     
                     if m then
                         az(m, {Size = UDim2.new(1, -30, 0, 0)}, bj.tween_time)
@@ -1143,19 +1156,37 @@ function bd:AddWindow(bi, bj)
                     end
                     f.Active = true
                     
-                    -- Убрана анимация вращения
+                    -- Сразу устанавливаем угол без анимации
                     bE.Rotation = 0
-                    local aG = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bI)}, bj.tween_time)
+                    
+                    -- Запускаем анимацию изменения размера
+                    currentToggleTween = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bI)}, bj.tween_time)
                     
                     if bE.Parent:FindFirstChild("Base") then
                         bE.Parent:FindFirstChild("Base").Transparency = bj.title_bar_transparency
                     end
                 end
                 bF = not bF
+                
+                -- Создаем соединение для сброса флага после завершения анимации
+                if currentToggleTween then
+                    currentToggleTween.Completed:Connect(
+                        function()
+                            currentToggleTween = nil
+                            bG = true
+                        end
+                    )
+                else
+                    -- Если анимация длится 0 секунд, сразу сбрасываем флаг
+                    bG = true
+                end
+                
+                -- Также добавляем отложенный сброс на случай, если анимация по какой-то причине не завершится
                 task.delay(
-                    bj.tween_time,
+                    bj.tween_time + 0.1,
                     function()
                         bG = true
+                        currentToggleTween = nil
                     end
                 )
             end
@@ -1723,14 +1754,14 @@ function bd:AddWindow(bi, bj)
                                         {Size = UDim2.new(1, 0, 0, d2), Position = UDim2.new(0, 0, 0, -d2 - 5)}
                                     )
                                     aG:Play()
-                                    -- Убрана анимация вращения для индикатора дропдауна
+                                    -- Статичное значение без анимации
                                     cF.Rotation = -90
                                 else
                                     d1 = false
                                     cY.Position = UDim2.new(0, 0, 0, 25)
                                     cY.Size = UDim2.new(1, 0, 0, 0)
                                     az(cY, {Size = UDim2.new(1, 0, 0, d2)}, bj.tween_time)
-                                    -- Убрана анимация вращения для индикатора дропдауна
+                                    -- Статичное значение без анимации
                                     cF.Rotation = 90
                                 end
                             else
@@ -1753,7 +1784,7 @@ function bd:AddWindow(bi, bj)
                                 else
                                     az(cY, {Size = UDim2.new(1, 0, 0, 0)}, bj.tween_time)
                                 end
-                                -- Убрана анимация вращения для индикатора дропдауна
+                                -- Статичное значение без анимации
                                 cF.Rotation = -90
                             end
                         end
@@ -1840,7 +1871,7 @@ function bd:AddWindow(bi, bj)
                                     else
                                         az(cY, {Size = UDim2.new(1, 0, 0, 0)}, bj.tween_time)
                                     end
-                                    -- Убрана анимация вращения для индикатора дропдауна
+                                    -- Статичное значение без анимации
                                     cF.Rotation = -90
                                     pcall(co, d7)
                                 end
@@ -2039,7 +2070,7 @@ function bd:AddWindow(bi, bj)
                         function()
                             bF = not bF
                             if bF then
-                                -- Убрана анимация вращения для тоггла папки
+                                -- Статичное значение без анимации
                                 dA.Rotation = 90
                                 cZ.Visible = true
                                 if dC then
@@ -2059,7 +2090,7 @@ function bd:AddWindow(bi, bj)
                                     end
                                 )
                             else
-                                -- Убрана анимация вращения для тоггла папки
+                                -- Статичное значение без анимации
                                 dA.Rotation = 0
                                 cZ.Visible = false
                                 dz.Size = UDim2.new(1, 0, 0, 20)
