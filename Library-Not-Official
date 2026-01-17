@@ -1099,23 +1099,25 @@ function bd:AddWindow(bi, bj)
         local bH = {}
         local bI = e.AbsoluteSize.Y
         
-        -- Добавляем переменную для отслеживания текущей анимации
-        local currentToggleTween = nil
+        -- Добавляем CD на клики
+        local toggleCooldown = false
         
         bE.MouseButton1Click:Connect(
             function()
-                if not bG then
+                -- Проверяем CD
+                if toggleCooldown then
                     return
                 end
-                bG = false
                 
-                -- Отменяем предыдущую анимацию, если она еще выполняется
-                if currentToggleTween then
-                    currentToggleTween:Cancel()
-                    currentToggleTween = nil
-                end
+                -- Устанавливаем CD
+                toggleCooldown = true
                 
-                if bF then
+                -- Сохраняем текущий размер окна для анимации
+                local currentHeight = e.AbsoluteSize.Y
+                local isClosing = bF
+                
+                if isClosing then
+                    -- Сохраняем видимость всех табов
                     bH = {}
                     local bv = e:FindFirstChild("Tabs")
                     local m = e:FindFirstChild("TabSelection")
@@ -1125,13 +1127,12 @@ function bd:AddWindow(bi, bj)
                         aW.Visible = false
                     end
                     f.Active = false
-                    bI = e.AbsoluteSize.Y
                     
-                    -- Сразу устанавливаем угол без анимации
+                    -- Устанавливаем угол без анимации
                     bE.Rotation = -180
                     
-                    -- Запускаем анимацию изменения размера
-                    currentToggleTween = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, 26)}, bj.tween_time)
+                    -- Запускаем анимацию
+                    az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, 26)}, bj.tween_time)
                     
                     if m then
                         az(m, {Size = UDim2.new(1, -30, 0, 0)}, bj.tween_time)
@@ -1151,42 +1152,31 @@ function bd:AddWindow(bi, bj)
                         az(m, {BackgroundTransparency = 0.4}, bj.tween_time)
                     end
                     
+                    -- Восстанавливаем видимость табов
                     for bh, aW in pairs(bH) do
                         bh.Visible = aW
                     end
                     f.Active = true
                     
-                    -- Сразу устанавливаем угол без анимации
+                    -- Устанавливаем угол без анимации
                     bE.Rotation = 0
                     
-                    -- Запускаем анимацию изменения размера
-                    currentToggleTween = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bI)}, bj.tween_time)
+                    -- Запускаем анимацию
+                    az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bI)}, bj.tween_time)
                     
                     if bE.Parent:FindFirstChild("Base") then
                         bE.Parent:FindFirstChild("Base").Transparency = bj.title_bar_transparency
                     end
                 end
+                
+                -- Меняем состояние
                 bF = not bF
                 
-                -- Создаем соединение для сброса флага после завершения анимации
-                if currentToggleTween then
-                    currentToggleTween.Completed:Connect(
-                        function()
-                            currentToggleTween = nil
-                            bG = true
-                        end
-                    )
-                else
-                    -- Если анимация длится 0 секунд, сразу сбрасываем флаг
-                    bG = true
-                end
-                
-                -- Также добавляем отложенный сброс на случай, если анимация по какой-то причине не завершится
+                -- Сбрасываем CD через время анимации + небольшой запас
                 task.delay(
-                    bj.tween_time + 0.1,
+                    bj.tween_time + 0.05,
                     function()
-                        bG = true
-                        currentToggleTween = nil
+                        toggleCooldown = false
                     end
                 )
             end
@@ -1754,14 +1744,12 @@ function bd:AddWindow(bi, bj)
                                         {Size = UDim2.new(1, 0, 0, d2), Position = UDim2.new(0, 0, 0, -d2 - 5)}
                                     )
                                     aG:Play()
-                                    -- Статичное значение без анимации
                                     cF.Rotation = -90
                                 else
                                     d1 = false
                                     cY.Position = UDim2.new(0, 0, 0, 25)
                                     cY.Size = UDim2.new(1, 0, 0, 0)
                                     az(cY, {Size = UDim2.new(1, 0, 0, d2)}, bj.tween_time)
-                                    -- Статичное значение без анимации
                                     cF.Rotation = 90
                                 end
                             else
@@ -1784,7 +1772,6 @@ function bd:AddWindow(bi, bj)
                                 else
                                     az(cY, {Size = UDim2.new(1, 0, 0, 0)}, bj.tween_time)
                                 end
-                                -- Статичное значение без анимации
                                 cF.Rotation = -90
                             end
                         end
@@ -1871,7 +1858,6 @@ function bd:AddWindow(bi, bj)
                                     else
                                         az(cY, {Size = UDim2.new(1, 0, 0, 0)}, bj.tween_time)
                                     end
-                                    -- Статичное значение без анимации
                                     cF.Rotation = -90
                                     pcall(co, d7)
                                 end
@@ -2070,7 +2056,6 @@ function bd:AddWindow(bi, bj)
                         function()
                             bF = not bF
                             if bF then
-                                -- Статичное значение без анимации
                                 dA.Rotation = 90
                                 cZ.Visible = true
                                 if dC then
@@ -2090,7 +2075,6 @@ function bd:AddWindow(bi, bj)
                                     end
                                 )
                             else
-                                -- Статичное значение без анимации
                                 dA.Rotation = 0
                                 cZ.Visible = false
                                 dz.Size = UDim2.new(1, 0, 0, 20)
