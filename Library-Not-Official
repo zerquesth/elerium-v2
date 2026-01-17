@@ -109,7 +109,7 @@ e.ClipsDescendants = true
 e.Position = UDim2.new(0, 20, 0, 20)
 e.Selectable = true
 e.Size = UDim2.new(0, 200, 0, 200)
-e.Image = "rbxassetid://129096298893918"
+e.Image = "rbxassetid://130942559215723"
 e.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
 e.ScaleType = Enum.ScaleType.Slice
 e.SliceCenter = Rect.new(12, 12, 12, 12)
@@ -135,7 +135,7 @@ h.Position = UDim2.new(0, 5, 0, -2)
 h.Rotation = 0
 h.Size = UDim2.new(0, 20, 0, 20)
 h.ZIndex = 2
-h.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=99843495890086"
+h.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=122599866509231"
 i.Name = "Base"
 i.Parent = g
 i.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
@@ -933,14 +933,8 @@ function bd:AddWindow(bi, bj)
     e.ZIndex = e.ZIndex + bc * 10
     
     local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 8)
+    corner.CornerRadius = UDim.new(0, 12)
     corner.Parent = e
-    
-    local stroke = Instance.new("UIStroke")
-    stroke.Color = Color3.fromRGB(50, 50, 50)
-    stroke.Thickness = 1
-    stroke.Transparency = 0.7
-    stroke.Parent = e
     
     do
         local g = e:FindFirstChild("Bar")
@@ -961,19 +955,13 @@ function bd:AddWindow(bi, bj)
             j:Destroy()
         end
         local bo = Instance.new("UICorner")
-        bo.CornerRadius = UDim.new(0, 8)
+        bo.CornerRadius = UDim.new(0, 5)
         bo.Parent = g
-        
-        local barStroke = Instance.new("UIStroke")
-        barStroke.Color = Color3.fromRGB(50, 50, 50)
-        barStroke.Thickness = 1
-        barStroke.Transparency = 0.7
-        barStroke.Parent = g
         
         if h then
             h.Position = UDim2.new(0, 5, 0, bn)
             local toggleCorner = Instance.new("UICorner")
-            toggleCorner.CornerRadius = UDim.new(0, 6)
+            toggleCorner.CornerRadius = UDim.new(0, 4)
             toggleCorner.Parent = h
         end
         if l then
@@ -1016,10 +1004,8 @@ function bd:AddWindow(bi, bj)
             function()
                 local bw = bv.Visible
                 if bw then
-                    local bI = e.AbsoluteSize.Y
-                    az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bm)}, bj.tween_time)
-                    task.wait(bj.tween_time)
                     bv.Visible = false
+                    az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bm)}, bj.tween_time)
                 else
                     bv.Visible = true
                     e.Size = UDim2.new(0, e.AbsoluteSize.X, 0, bj.min_size.Y)
@@ -1098,85 +1084,41 @@ function bd:AddWindow(bi, bj)
         local bG = true
         local bH = {}
         local bI = e.AbsoluteSize.Y
-        
-        -- Добавляем CD на клики
-        local toggleCooldown = false
-        
         bE.MouseButton1Click:Connect(
             function()
-                -- Проверяем CD
-                if toggleCooldown then
+                if not bG then
                     return
                 end
-                
-                -- Устанавливаем CD
-                toggleCooldown = true
-                
-                -- Сохраняем текущий размер окна для анимации
-                local currentHeight = e.AbsoluteSize.Y
-                local isClosing = bF
-                
-                if isClosing then
-                    -- Сохраняем видимость всех табов
+                bG = false
+                if bF then
                     bH = {}
-                    local bv = e:FindFirstChild("Tabs")
-                    local m = e:FindFirstChild("TabSelection")
-                    
-                    for aw, aW in ipairs(bv:GetChildren()) do
+                    for aw, aW in ipairs(e:FindFirstChild("Tabs"):GetChildren()) do
                         bH[aW] = aW.Visible
                         aW.Visible = false
                     end
                     f.Active = false
-                    
-                    -- Устанавливаем угол без анимации
-                    bE.Rotation = -180
-                    
-                    -- Запускаем анимацию
-                    az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, 26)}, bj.tween_time)
-                    
-                    if m then
-                        az(m, {Size = UDim2.new(1, -30, 0, 0)}, bj.tween_time)
-                        az(m, {BackgroundTransparency = 1}, bj.tween_time)
-                    end
-                    
+                    bI = e.AbsoluteSize.Y
+                    az(bE, {Rotation = 0}, bj.tween_time)
+                    local aG = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, 26)}, bj.tween_time)
                     if bE.Parent:FindFirstChild("Base") then
                         bE.Parent:FindFirstChild("Base").Transparency = 1
                     end
                 else
-                    local bv = e:FindFirstChild("Tabs")
-                    local m = e:FindFirstChild("TabSelection")
-                    
-                    if m then
-                        m.Visible = true
-                        az(m, {Size = UDim2.new(1, -30, 0, 22)}, bj.tween_time)
-                        az(m, {BackgroundTransparency = 0.4}, bj.tween_time)
-                    end
-                    
-                    -- Восстанавливаем видимость табов
                     for bh, aW in pairs(bH) do
                         bh.Visible = aW
                     end
                     f.Active = true
-                    
-                    -- Устанавливаем угол без анимации
-                    bE.Rotation = 0
-                    
-                    -- Запускаем анимацию
-                    az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bI)}, bj.tween_time)
-                    
+                    az(bE, {Rotation = 0}, bj.tween_time)
+                    local aG = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bI)}, bj.tween_time)
                     if bE.Parent:FindFirstChild("Base") then
                         bE.Parent:FindFirstChild("Base").Transparency = bj.title_bar_transparency
                     end
                 end
-                
-                -- Меняем состояние
                 bF = not bF
-                
-                -- Сбрасываем CD через время анимации + небольшой запас
                 task.delay(
-                    bj.tween_time + 0.05,
+                    bj.tween_time,
                     function()
-                        toggleCooldown = false
+                        bG = true
                     end
                 )
             end
@@ -1216,7 +1158,7 @@ function bd:AddWindow(bi, bj)
             bW.ZIndex = bV.ZIndex + bc * 10
             bW.ImageTransparency = 1
             local bX = Instance.new("UICorner")
-            bX.CornerRadius = UDim.new(0, 6)
+            bX.CornerRadius = UDim.new(0, 4)
             bX.Parent = bV
             
             bV.TextColor3 = Color3.fromRGB(200, 200, 200)
@@ -1236,14 +1178,14 @@ function bd:AddWindow(bi, bj)
             bZ.ZIndex = bV.ZIndex + 10
             bZ.Visible = false
             local b_ = Instance.new("UICorner")
-            b_.CornerRadius = UDim.new(0, 6)
+            b_.CornerRadius = UDim.new(0, 4)
             b_.Parent = bZ
             bZ.Parent = bV
             local c0 = c:FindFirstChild("Tab"):Clone()
             c0.Parent = bJ
             c0.ZIndex = c0.ZIndex + bc * 10
             c0.Visible = false
-            c0.ClipsDescendants = true
+            c0.ClipsDescendants = false
             c0.Size = UDim2.new(1, 0, 1, 0)
             c0.BackgroundTransparency = 1
             
@@ -1251,17 +1193,10 @@ function bd:AddWindow(bi, bj)
             tabContentCorner.CornerRadius = UDim.new(0, 8)
             tabContentCorner.Parent = c0
             
-            local tabStroke = Instance.new("UIStroke")
-            tabStroke.Color = Color3.fromRGB(50, 50, 50)
-            tabStroke.Thickness = 1
-            tabStroke.Transparency = 0.7
-            tabStroke.Parent = c0
-            
             local c1 = Instance.new("Frame")
             c1.Name = "TabScroller"
             c1.Parent = c0
-            c1.Size = UDim2.new(1, -10, 1, -10)
-            c1.Position = UDim2.new(0, 5, 0, 5)
+            c1.Size = UDim2.new(1, 0, 1, 0)
             c1.BackgroundTransparency = 1
             c1.BorderSizePixel = 0
             c1.ZIndex = c0.ZIndex
@@ -1413,7 +1348,7 @@ function bd:AddWindow(bi, bj)
                     cm.ZIndex = cm.ZIndex + bc * 10
                     
                     local labelCorner = Instance.new("UICorner")
-                    labelCorner.CornerRadius = UDim.new(0, 6)
+                    labelCorner.CornerRadius = UDim.new(0, 4)
                     labelCorner.Parent = cm
                     
                     return cm
@@ -1744,13 +1679,13 @@ function bd:AddWindow(bi, bj)
                                         {Size = UDim2.new(1, 0, 0, d2), Position = UDim2.new(0, 0, 0, -d2 - 5)}
                                     )
                                     aG:Play()
-                                    cF.Rotation = -90
+                                    az(cF, {Rotation = -90}, bj.tween_time)
                                 else
                                     d1 = false
                                     cY.Position = UDim2.new(0, 0, 0, 25)
                                     cY.Size = UDim2.new(1, 0, 0, 0)
                                     az(cY, {Size = UDim2.new(1, 0, 0, d2)}, bj.tween_time)
-                                    cF.Rotation = 90
+                                    az(cF, {Rotation = 90}, bj.tween_time)
                                 end
                             else
                                 bk = false
@@ -1772,7 +1707,7 @@ function bd:AddWindow(bi, bj)
                                 else
                                     az(cY, {Size = UDim2.new(1, 0, 0, 0)}, bj.tween_time)
                                 end
-                                cF.Rotation = -90
+                                az(cF, {Rotation = -90}, bj.tween_time)
                             end
                         end
                     )
@@ -1858,7 +1793,7 @@ function bd:AddWindow(bi, bj)
                                     else
                                         az(cY, {Size = UDim2.new(1, 0, 0, 0)}, bj.tween_time)
                                     end
-                                    cF.Rotation = -90
+                                    az(cF, {Rotation = -90}, bj.tween_time)
                                     pcall(co, d7)
                                 end
                             end
@@ -2056,7 +1991,7 @@ function bd:AddWindow(bi, bj)
                         function()
                             bF = not bF
                             if bF then
-                                dA.Rotation = 90
+                                az(dA, {Rotation = 90}, bj.tween_time)
                                 cZ.Visible = true
                                 if dC then
                                     dC:Disconnect()
@@ -2075,7 +2010,7 @@ function bd:AddWindow(bi, bj)
                                     end
                                 )
                             else
-                                dA.Rotation = 0
+                                az(dA, {Rotation = 0}, bj.tween_time)
                                 cZ.Visible = false
                                 dz.Size = UDim2.new(1, 0, 0, 20)
                                 if dC then
