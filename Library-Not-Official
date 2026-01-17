@@ -1116,7 +1116,8 @@ function bd:AddWindow(bi, bj)
                     f.Active = false
                     bI = e.AbsoluteSize.Y
                     
-                    az(bE, {Rotation = -180}, bj.tween_time)
+                    -- Убрана анимация вращения
+                    bE.Rotation = -180
                     local aG = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, 26)}, bj.tween_time)
                     
                     if m then
@@ -1142,7 +1143,8 @@ function bd:AddWindow(bi, bj)
                     end
                     f.Active = true
                     
-                    az(bE, {Rotation = 0}, bj.tween_time)
+                    -- Убрана анимация вращения
+                    bE.Rotation = 0
                     local aG = az(e, {Size = UDim2.new(0, e.AbsoluteSize.X, 0, bI)}, bj.tween_time)
                     
                     if bE.Parent:FindFirstChild("Base") then
@@ -1721,13 +1723,15 @@ function bd:AddWindow(bi, bj)
                                         {Size = UDim2.new(1, 0, 0, d2), Position = UDim2.new(0, 0, 0, -d2 - 5)}
                                     )
                                     aG:Play()
-                                    az(cF, {Rotation = -90}, bj.tween_time)
+                                    -- Убрана анимация вращения для индикатора дропдауна
+                                    cF.Rotation = -90
                                 else
                                     d1 = false
                                     cY.Position = UDim2.new(0, 0, 0, 25)
                                     cY.Size = UDim2.new(1, 0, 0, 0)
                                     az(cY, {Size = UDim2.new(1, 0, 0, d2)}, bj.tween_time)
-                                    az(cF, {Rotation = 90}, bj.tween_time)
+                                    -- Убрана анимация вращения для индикатора дропдауна
+                                    cF.Rotation = 90
                                 end
                             else
                                 bk = false
@@ -1749,7 +1753,8 @@ function bd:AddWindow(bi, bj)
                                 else
                                     az(cY, {Size = UDim2.new(1, 0, 0, 0)}, bj.tween_time)
                                 end
-                                az(cF, {Rotation = -90}, bj.tween_time)
+                                -- Убрана анимация вращения для индикатора дропдауна
+                                cF.Rotation = -90
                             end
                         end
                     )
@@ -1835,7 +1840,8 @@ function bd:AddWindow(bi, bj)
                                     else
                                         az(cY, {Size = UDim2.new(1, 0, 0, 0)}, bj.tween_time)
                                     end
-                                    az(cF, {Rotation = -90}, bj.tween_time)
+                                    -- Убрана анимация вращения для индикатора дропдауна
+                                    cF.Rotation = -90
                                     pcall(co, d7)
                                 end
                             end
@@ -2033,7 +2039,8 @@ function bd:AddWindow(bi, bj)
                         function()
                             bF = not bF
                             if bF then
-                                az(dA, {Rotation = 90}, bj.tween_time)
+                                -- Убрана анимация вращения для тоггла папки
+                                dA.Rotation = 90
                                 cZ.Visible = true
                                 if dC then
                                     dC:Disconnect()
@@ -2052,7 +2059,8 @@ function bd:AddWindow(bi, bj)
                                     end
                                 )
                             else
-                                az(dA, {Rotation = 0}, bj.tween_time)
+                                -- Убрана анимация вращения для тоггла папки
+                                dA.Rotation = 0
                                 cZ.Visible = false
                                 dz.Size = UDim2.new(1, 0, 0, 20)
                                 if dC then
