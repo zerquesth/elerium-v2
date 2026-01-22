@@ -109,10 +109,8 @@ e.ClipsDescendants = true
 e.Position = UDim2.new(0, 20, 0, 20)
 e.Selectable = true
 e.Size = UDim2.new(0, 200, 0, 200)
-e.Image = "rbxassetid://115954865818854"
-e.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
-e.ScaleType = Enum.ScaleType.Slice
-e.SliceCenter = Rect.new(12, 12, 12, 12)
+e.Image = "rbxassetid://124263723335145"
+e.ImageColor3 = Color3.new(1, 1, 1)
 f.Name = "Resizer"
 f.Parent = e
 f.Active = true
@@ -135,7 +133,7 @@ h.Position = UDim2.new(0, 5, 0, -2)
 h.Rotation = 0
 h.Size = UDim2.new(0, 20, 0, 20)
 h.ZIndex = 2
-h.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=117019809594968"
+h.Image = "rbxassetid://78738911240361"
 i.Name = "Base"
 i.Parent = g
 i.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
@@ -144,8 +142,6 @@ i.Position = UDim2.new(0, 0, 0.800000012, 0)
 i.Size = UDim2.new(1, 0, 0, 10)
 i.Image = "rbxassetid://2851926732"
 i.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
-i.ScaleType = Enum.ScaleType.Slice
-i.SliceCenter = Rect.new(12, 12, 12, 12)
 j.Name = "Top"
 j.Parent = g
 j.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -154,8 +150,6 @@ j.Position = UDim2.new(0, 0, 0, -5)
 j.Size = UDim2.new(1, 0, 0, 10)
 j.Image = "rbxassetid://2851926732"
 j.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
-j.ScaleType = Enum.ScaleType.Slice
-j.SliceCenter = Rect.new(12, 12, 12, 12)
 k.Name = "Tabs"
 k.Parent = e
 k.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -183,8 +177,6 @@ m.Size = UDim2.new(1, -30, 0, 25)
 m.Visible = false
 m.Image = "rbxassetid://2851929490"
 m.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
-m.ScaleType = Enum.ScaleType.Slice
-m.SliceCenter = Rect.new(4, 4, 4, 4)
 n.Name = "TabScrolling"
 n.Parent = m
 n.BackgroundTransparency = 1
@@ -238,8 +230,6 @@ u.BackgroundTransparency = 1
 u.Size = UDim2.new(1, 0, 1, 0)
 u.Image = "rbxassetid://2851929490"
 u.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
-u.ScaleType = Enum.ScaleType.Slice
-u.SliceCenter = Rect.new(4, 4, 4, 4)
 v.Name = "Slider"
 v.Parent = c
 v.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -248,8 +238,6 @@ v.Position = UDim2.new(0, 0, 0.178571433, 0)
 v.Size = UDim2.new(1, 0, 0, 20)
 v.Image = "rbxassetid://2851929490"
 v.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
-v.ScaleType = Enum.ScaleType.Slice
-v.SliceCenter = Rect.new(4, 4, 4, 4)
 w.Name = "Title"
 w.Parent = v
 w.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -268,8 +256,6 @@ x.BackgroundTransparency = 1
 x.Size = UDim2.new(0, 0, 0, 20)
 x.Image = "rbxassetid://2851929490"
 x.ImageColor3 = Color3.new(0.254902, 0.262745, 0.278431)
-x.ScaleType = Enum.ScaleType.Slice
-x.SliceCenter = Rect.new(4, 4, 4, 4)
 y.Name = "Value"
 y.Parent = v
 y.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -339,8 +325,6 @@ F.Size = UDim2.new(1, 0, 0, 150)
 F.ZIndex = 3
 F.Image = "rbxassetid://2851929490"
 F.ImageColor3 = Color3.new(0.129412, 0.133333, 0.141176)
-F.ScaleType = Enum.ScaleType.Slice
-F.SliceCenter = Rect.new(4, 4, 4, 4)
 G.Name = "Objects"
 G.Parent = F
 G.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -360,8 +344,6 @@ I.BackgroundTransparency = 1
 I.Size = UDim2.new(1, 0, 1, 0)
 I.Image = "rbxassetid://2851929490"
 I.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
-I.ScaleType = Enum.ScaleType.Slice
-I.SliceCenter = Rect.new(4, 4, 4, 4)
 J.Name = "TabButton"
 J.Parent = c
 J.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
@@ -381,8 +363,6 @@ K.BackgroundTransparency = 1
 K.Size = UDim2.new(1, 0, 1, 0)
 K.Image = "rbxassetid://2851929490"
 K.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
-K.ScaleType = Enum.ScaleType.Slice
-K.SliceCenter = Rect.new(4, 4, 4, 4)
 L.Name = "Folder"
 L.Parent = c
 L.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -391,8 +371,6 @@ L.Position = UDim2.new(0, 0, 0, 50)
 L.Size = UDim2.new(1, 0, 0, 20)
 L.Image = "rbxassetid://2851929490"
 L.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
-L.ScaleType = Enum.ScaleType.Slice
-L.SliceCenter = Rect.new(4, 4, 4, 4)
 M.Name = "Button"
 M.Parent = L
 M.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
@@ -412,8 +390,6 @@ N.BackgroundTransparency = 1
 N.Size = UDim2.new(1, 0, 1, 0)
 N.Image = "rbxassetid://2851929490"
 N.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
-N.ScaleType = Enum.ScaleType.Slice
-N.SliceCenter = Rect.new(4, 4, 4, 4)
 O.Name = "Toggle"
 O.Parent = M
 O.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -447,8 +423,6 @@ T.BackgroundTransparency = 1
 T.Size = UDim2.new(1, 0, 0, 200)
 T.Image = "rbxassetid://2851928141"
 T.ImageColor3 = Color3.new(0.129412, 0.133333, 0.141176)
-T.ScaleType = Enum.ScaleType.Slice
-T.SliceCenter = Rect.new(8, 8, 8, 8)
 U.Parent = T
 U.BackgroundColor3 = Color3.new(1, 1, 1)
 U.BackgroundTransparency = 1
@@ -590,8 +564,6 @@ a4.BackgroundTransparency = 1
 a4.Size = UDim2.new(0, 180, 0, 110)
 a4.Image = "rbxassetid://2851929490"
 a4.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
-a4.ScaleType = Enum.ScaleType.Slice
-a4.SliceCenter = Rect.new(4, 4, 4, 4)
 a5.Name = "Palette"
 a5.Parent = a4
 a5.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -599,8 +571,6 @@ a5.BackgroundTransparency = 1
 a5.Position = UDim2.new(0.0500000007, 0, 0.0500000007, 0)
 a5.Size = UDim2.new(0, 100, 0, 100)
 a5.Image = "rbxassetid://698052001"
-a5.ScaleType = Enum.ScaleType.Slice
-a5.SliceCenter = Rect.new(4, 4, 4, 4)
 a6.Name = "Indicator"
 a6.Parent = a5
 a6.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -609,8 +579,6 @@ a6.Size = UDim2.new(0, 5, 0, 5)
 a6.ZIndex = 2
 a6.Image = "rbxassetid://2851926732"
 a6.ImageColor3 = Color3.new(0, 0, 0)
-a6.ScaleType = Enum.ScaleType.Slice
-a6.SliceCenter = Rect.new(12, 12, 12, 12)
 a7.Name = "Sample"
 a7.Parent = a4
 a7.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -618,8 +586,6 @@ a7.BackgroundTransparency = 1
 a7.Position = UDim2.new(0.800000012, 0, 0.0500000007, 0)
 a7.Size = UDim2.new(0, 25, 0, 25)
 a7.Image = "rbxassetid://2851929490"
-a7.ScaleType = Enum.ScaleType.Slice
-a7.SliceCenter = Rect.new(4, 4, 4, 4)
 a8.Name = "Saturation"
 a8.Parent = a4
 a8.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -652,8 +618,6 @@ ab.Size = UDim2.new(1, 0, 1, 0)
 ab.Image = "rbxassetid://2851929490"
 ab.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 ab.ImageTransparency = 0.5
-ab.ScaleType = Enum.ScaleType.Slice
-ab.SliceCenter = Rect.new(4, 4, 4, 4)
 ac.Name = "Title"
 ac.Parent = aa
 ac.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -682,8 +646,6 @@ ae.BackgroundTransparency = 1
 ae.Size = UDim2.new(1, 0, 1, 0)
 ae.Image = "rbxassetid://2851929490"
 ae.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
-ae.ScaleType = Enum.ScaleType.Slice
-ae.SliceCenter = Rect.new(4, 4, 4, 4)
 af.Name = "DropdownButton"
 af.Parent = c
 af.BackgroundColor3 = Color3.new(0.129412, 0.133333, 0.141176)
@@ -702,8 +664,6 @@ ag.BackgroundTransparency = 1
 ag.Size = UDim2.new(0, 200, 0, 20)
 ag.Image = "rbxassetid://2851929490"
 ag.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
-ag.ScaleType = Enum.ScaleType.Slice
-ag.SliceCenter = Rect.new(4, 4, 4, 4)
 ah.Name = "Title"
 ah.Parent = ag
 ah.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -734,8 +694,6 @@ aj.BackgroundTransparency = 1
 aj.Size = UDim2.new(1, 0, 1, 0)
 aj.Image = "rbxassetid://2851929490"
 aj.ImageColor3 = Color3.new(0.290196, 0.294118, 0.313726)
-aj.ScaleType = Enum.ScaleType.Slice
-aj.SliceCenter = Rect.new(4, 4, 4, 4)
 ak.Name = "Windows"
 ak.Parent = b
 ak.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -931,11 +889,6 @@ function bd:AddWindow(bi, bj)
     e:FindFirstChild("Title").Text = bi
     e.Size = UDim2.new(0, bj.min_size.X, 0, bj.min_size.Y)
     e.ZIndex = e.ZIndex + bc * 10
-    
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 12)
-    corner.Parent = e
-    
     do
         local g = e:FindFirstChild("Bar")
         local l = g:FindFirstChild("Title")
@@ -954,15 +907,8 @@ function bd:AddWindow(bi, bj)
         if j then
             j:Destroy()
         end
-        local bo = Instance.new("UICorner")
-        bo.CornerRadius = UDim.new(0, 5)
-        bo.Parent = g
-        
         if h then
             h.Position = UDim2.new(0, 5, 0, bn)
-            local toggleCorner = Instance.new("UICorner")
-            toggleCorner.CornerRadius = UDim.new(0, 4)
-            toggleCorner.Parent = h
         end
         if l then
             local bp = 25
@@ -976,10 +922,6 @@ function bd:AddWindow(bi, bj)
         if m then
             m.Size = UDim2.new(1, -30, 0, 22)
             m.Position = UDim2.new(0, 15, 0, 28)
-            local br = Instance.new("UICorner")
-            br.CornerRadius = UDim.new(0, 6)
-            br.Parent = m
-            
             m.ImageTransparency = 0.4
             aH(m, bj.title_bar, 45)
             local bs = m:FindFirstChild("TabScrolling")
@@ -998,7 +940,6 @@ function bd:AddWindow(bi, bj)
             end
         end
         e.ImageTransparency = bj.background_transparency
-        aH(e, bj.background, 45)
         local bv = e:FindFirstChild("Tabs")
         h.MouseButton1Click:Connect(
             function()
@@ -1157,10 +1098,6 @@ function bd:AddWindow(bi, bj)
             local bW = bV:GetChildren()[1]
             bW.ZIndex = bV.ZIndex + bc * 10
             bW.ImageTransparency = 1
-            local bX = Instance.new("UICorner")
-            bX.CornerRadius = UDim.new(0, 4)
-            bX.Parent = bV
-            
             bV.TextColor3 = Color3.fromRGB(200, 200, 200)
             bV.TextSize = 13
             bV.Font = Enum.Font.FredokaOne
@@ -1177,9 +1114,6 @@ function bd:AddWindow(bi, bj)
             bZ.BorderColor3 = bj.main_color
             bZ.ZIndex = bV.ZIndex + 10
             bZ.Visible = false
-            local b_ = Instance.new("UICorner")
-            b_.CornerRadius = UDim.new(0, 4)
-            b_.Parent = bZ
             bZ.Parent = bV
             local c0 = c:FindFirstChild("Tab"):Clone()
             c0.Parent = bJ
@@ -1188,11 +1122,6 @@ function bd:AddWindow(bi, bj)
             c0.ClipsDescendants = false
             c0.Size = UDim2.new(1, 0, 1, 0)
             c0.BackgroundTransparency = 1
-            
-            local tabContentCorner = Instance.new("UICorner")
-            tabContentCorner.CornerRadius = UDim.new(0, 8)
-            tabContentCorner.Parent = c0
-            
             local c1 = Instance.new("Frame")
             c1.Name = "TabScroller"
             c1.Parent = c0
@@ -1346,11 +1275,6 @@ function bd:AddWindow(bi, bj)
                     cm.Text = cl
                     cm.Size = UDim2.new(0, b1(cm), 0, 20)
                     cm.ZIndex = cm.ZIndex + bc * 10
-                    
-                    local labelCorner = Instance.new("UICorner")
-                    labelCorner.CornerRadius = UDim.new(0, 4)
-                    labelCorner.Parent = cm
-                    
                     return cm
                 end
                 function bU:AddButton(cn, co)
@@ -1368,11 +1292,6 @@ function bd:AddWindow(bi, bj)
                     cp.ImageTransparency = bj.title_bar_transparency or 0
                     aH(cp, bj.title_bar, 0)
                     b5.TextColor3 = Color3.new(1, 1, 1)
-                    
-                    local buttonCorner = Instance.new("UICorner")
-                    buttonCorner.CornerRadius = UDim.new(0, 6)
-                    buttonCorner.Parent = b5
-                    
                     b5.MouseButton1Click:Connect(
                         function()
                             b4(b5, aq.X, aq.Y)
@@ -1396,11 +1315,6 @@ function bd:AddWindow(bi, bj)
                     ct.ZIndex = ct.ZIndex + bc * 10
                     ct.ImageTransparency = bj.title_bar_transparency or 0
                     aH(ct, bj.title_bar, 0)
-                    
-                    local switchCorner = Instance.new("UICorner")
-                    switchCorner.CornerRadius = UDim.new(0, 6)
-                    switchCorner.Parent = cs
-                    
                     local cu = false
                     cs.MouseButton1Click:Connect(
                         function()
@@ -1434,11 +1348,6 @@ function bd:AddWindow(bi, bj)
                     aH(cz, bj.title_bar, 0)
                     cy.TextColor3 = Color3.new(1, 1, 1)
                     cy.PlaceholderColor3 = Color3.fromRGB(200, 200, 200)
-                    
-                    local textboxCorner = Instance.new("UICorner")
-                    textboxCorner.CornerRadius = UDim.new(0, 6)
-                    textboxCorner.Parent = cy
-                    
                     cy.FocusLost:Connect(
                         function(cA)
                             if cA and #cy.Text > 0 then
@@ -1464,11 +1373,6 @@ function bd:AddWindow(bi, bj)
                     local c1 = c0:FindFirstChild("TabScroller")
                     cE.Parent = c1 or c0
                     cE.ZIndex = cE.ZIndex + bc * 10
-                    
-                    local sliderCorner = Instance.new("UICorner")
-                    sliderCorner.CornerRadius = UDim.new(0, 6)
-                    sliderCorner.Parent = cE
-                    
                     local bi = cE:FindFirstChild("Title")
                     local cF = cE:FindFirstChild("Indicator")
                     local cG = cE:FindFirstChild("Value")
@@ -1563,11 +1467,6 @@ function bd:AddWindow(bi, bj)
                     ax.ZIndex = ax.ZIndex + bc * 10
                     ax:GetChildren()[1].ZIndex = ax:GetChildren()[1].ZIndex + bc * 10
                     bi.ZIndex = bi.ZIndex + bc * 10
-                    
-                    local keybindCorner = Instance.new("UICorner")
-                    keybindCorner.CornerRadius = UDim.new(0, 6)
-                    keybindCorner.Parent = cQ
-                    
                     local c1 = c0:FindFirstChild("TabScroller")
                     cQ.Parent = c1 or c0
                     bi.Text = "  " .. cN
@@ -1635,10 +1534,6 @@ function bd:AddWindow(bi, bj)
                     aH(c_, bj.title_bar, 0)
                     cY.ImageTransparency = bj.background_transparency or 0.1
                     aH(cY, bj.background, 0)
-                    local d0 = Instance.new("UICorner")
-                    d0.CornerRadius = UDim.new(0, 6)
-                    d0.Parent = cY
-                    
                     cZ.BackgroundTransparency = 1
                     cZ.Position = UDim2.new(0, 0, 0, 0)
                     cZ.Size = UDim2.new(1, 0, 1, 0)
@@ -1731,11 +1626,6 @@ function bd:AddWindow(bi, bj)
                         bY.Thickness = 1
                         bY.Transparency = 0.3
                         bY.Parent = aZ
-                        
-                        local dropdownButtonCorner = Instance.new("UICorner")
-                        dropdownButtonCorner.CornerRadius = UDim.new(0, 4)
-                        dropdownButtonCorner.Parent = aZ
-                        
                         aZ.MouseEnter:Connect(
                             function()
                                 aZ.BackgroundTransparency = 0.8
@@ -1826,11 +1716,6 @@ function bd:AddWindow(bi, bj)
                     local c1 = c0:FindFirstChild("TabScroller")
                     df.Parent = c1 or c0
                     df.ZIndex = df.ZIndex + bc * 10
-                    
-                    local colorPickerCorner = Instance.new("UICorner")
-                    colorPickerCorner.CornerRadius = UDim.new(0, 8)
-                    colorPickerCorner.Parent = df
-                    
                     local dg = df:FindFirstChild("Palette")
                     local dh = df:FindFirstChild("Sample")
                     local di = df:FindFirstChild("Saturation")
@@ -1941,11 +1826,6 @@ function bd:AddWindow(bi, bj)
                     local dv = c:FindFirstChild("HorizontalAlignment"):Clone()
                     local c1 = c0:FindFirstChild("TabScroller")
                     dv.Parent = c1 or c0
-                    
-                    local horizontalCorner = Instance.new("UICorner")
-                    horizontalCorner.CornerRadius = UDim.new(0, 6)
-                    horizontalCorner.Parent = dv
-                    
                     function du:AddButton(...)
                         local dw = {bU:AddButton(...)}
                         local aZ = dw[#dw]
@@ -1971,11 +1851,6 @@ function bd:AddWindow(bi, bj)
                     b5.Text = "      " .. dx
                     local cp = b5:GetChildren()[1]
                     cp.ImageColor3 = bj.main_color
-                    
-                    local folderCorner = Instance.new("UICorner")
-                    folderCorner.CornerRadius = UDim.new(0, 6)
-                    folderCorner.Parent = dz
-                    
                     local function dB()
                         local d7 = 25
                         for aw, aW in ipairs(cZ:GetChildren()) do
