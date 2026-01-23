@@ -104,13 +104,16 @@ e.Name = "Window"
 e.Parent = c
 e.Active = true
 e.BackgroundColor3 = Color3.new(1, 1, 1)
-e.BackgroundTransparency = 0.3
+e.BackgroundTransparency = 0.5
 e.ClipsDescendants = true
 e.Position = UDim2.new(0, 20, 0, 20)
 e.Selectable = true
 e.Size = UDim2.new(0, 200, 0, 200)
 e.Image = "rbxassetid://106759190357537"
 e.ImageColor3 = Color3.new(1, 1, 1)
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 8)
+corner.Parent = e
 f.Name = "Resizer"
 f.Parent = e
 f.Active = true
@@ -223,21 +226,6 @@ t.PlaceholderText = "Input Text"
 t.Text = ""
 t.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 t.TextSize = 14
-u.Name = "TextBox_Roundify_4px"
-u.Parent = t
-u.BackgroundColor3 = Color3.new(1, 1, 1)
-u.BackgroundTransparency = 1
-u.Size = UDim2.new(1, 0, 1, 0)
-u.Image = "rbxassetid://2851929490"
-u.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
-v.Name = "Slider"
-v.Parent = c
-v.BackgroundColor3 = Color3.new(1, 1, 1)
-v.BackgroundTransparency = 1
-v.Position = UDim2.new(0, 0, 0.178571433, 0)
-v.Size = UDim2.new(1, 0, 0, 20)
-v.Image = "rbxassetid://2851929490"
-v.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
 w.Name = "Title"
 w.Parent = v
 w.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -337,13 +325,6 @@ G.ScrollBarThickness = 4
 G.ScrollBarImageColor3 = Color3.fromRGB(255, 0, 0)
 H.Parent = G
 H.SortOrder = Enum.SortOrder.LayoutOrder
-I.Name = "TextButton_Roundify_4px"
-I.Parent = D
-I.BackgroundColor3 = Color3.new(1, 1, 1)
-I.BackgroundTransparency = 1
-I.Size = UDim2.new(1, 0, 1, 0)
-I.Image = "rbxassetid://2851929490"
-I.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
 J.Name = "TabButton"
 J.Parent = c
 J.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
@@ -356,13 +337,6 @@ J.Font = Enum.Font.FredokaOne
 J.Text = "Test tab"
 J.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 J.TextSize = 14
-K.Name = "TextButton_Roundify_4px"
-K.Parent = J
-K.BackgroundColor3 = Color3.new(1, 1, 1)
-K.BackgroundTransparency = 1
-K.Size = UDim2.new(1, 0, 1, 0)
-K.Image = "rbxassetid://2851929490"
-K.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
 L.Name = "Folder"
 L.Parent = c
 L.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -383,13 +357,6 @@ M.Text = "      Folder"
 M.TextColor3 = Color3.new(1, 1, 1)
 M.TextSize = 14
 M.TextXAlignment = Enum.TextXAlignment.Left
-N.Name = "TextButton_Roundify_4px"
-N.Parent = M
-N.BackgroundColor3 = Color3.new(1, 1, 1)
-N.BackgroundTransparency = 1
-N.Size = UDim2.new(1, 0, 1, 0)
-N.Image = "rbxassetid://2851929490"
-N.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 O.Name = "Toggle"
 O.Parent = M
 O.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -610,14 +577,6 @@ aa.Font = Enum.Font.SourceSans
 aa.Text = ""
 aa.TextColor3 = Color3.new(1, 1, 1)
 aa.TextSize = 14
-ab.Name = "TextButton_Roundify_4px"
-ab.Parent = aa
-ab.BackgroundColor3 = Color3.new(1, 1, 1)
-ab.BackgroundTransparency = 1
-ab.Size = UDim2.new(1, 0, 1, 0)
-ab.Image = "rbxassetid://2851929490"
-ab.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
-ab.ImageTransparency = 0.5
 ac.Name = "Title"
 ac.Parent = aa
 ac.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -639,13 +598,6 @@ ad.ZIndex = 2
 ad.Font = Enum.Font.FredokaOne
 ad.TextColor3 = Color3.new(1, 1, 1)
 ad.TextSize = 14
-ae.Name = "TextButton_Roundify_4px"
-ae.Parent = ad
-ae.BackgroundColor3 = Color3.new(1, 1, 1)
-ae.BackgroundTransparency = 1
-ae.Size = UDim2.new(1, 0, 1, 0)
-ae.Image = "rbxassetid://2851929490"
-ae.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 af.Name = "DropdownButton"
 af.Parent = c
 af.BackgroundColor3 = Color3.new(0.129412, 0.133333, 0.141176)
@@ -687,13 +639,6 @@ ai.Text = "RShift"
 ai.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 ai.TextSize = 12
 ai.TextWrapped = true
-aj.Name = "Input_Roundify_4px"
-aj.Parent = ai
-aj.BackgroundColor3 = Color3.new(1, 1, 1)
-aj.BackgroundTransparency = 1
-aj.Size = UDim2.new(1, 0, 1, 0)
-aj.Image = "rbxassetid://2851929490"
-aj.ImageColor3 = Color3.new(0.290196, 0.294118, 0.313726)
 ak.Name = "Windows"
 ak.Parent = b
 ak.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -880,7 +825,7 @@ function bd:AddWindow(bi, bj)
     if typeof(bj.background) == "Color3" then
         bj.background = {bj.background}
     end
-    bj.background_transparency = bj.background_transparency or 0.1
+    bj.background_transparency = bj.background_transparency or 0.3
     if not bj.main_color then
         bj.main_color = bj.title_bar[1]
     end
@@ -1095,9 +1040,6 @@ function bd:AddWindow(bi, bj)
             bV.Size = UDim2.new(0, b1(bV) + 20, 0, 18)
             bV.ZIndex = bV.ZIndex + bc * 10
             bV.BackgroundTransparency = 1
-            local bW = bV:GetChildren()[1]
-            bW.ZIndex = bV.ZIndex + bc * 10
-            bW.ImageTransparency = 1
             bV.TextColor3 = Color3.fromRGB(200, 200, 200)
             bV.TextSize = 13
             bV.Font = Enum.Font.FredokaOne
@@ -1287,10 +1229,6 @@ function bd:AddWindow(bi, bj)
                     b5.Text = cn
                     b5.Size = UDim2.new(0, b1(b5), 0, 20)
                     b5.ZIndex = b5.ZIndex + bc * 10
-                    local cp = b5:GetChildren()[1]
-                    cp.ZIndex = cp.ZIndex + bc * 10
-                    cp.ImageTransparency = bj.title_bar_transparency or 0
-                    aH(cp, bj.title_bar, 0)
                     b5.TextColor3 = Color3.new(1, 1, 1)
                     b5.MouseButton1Click:Connect(
                         function()
@@ -1311,10 +1249,6 @@ function bd:AddWindow(bi, bj)
                     cs:FindFirstChild("Title").Text = cq
                     cs:FindFirstChild("Title").ZIndex = cs:FindFirstChild("Title").ZIndex + bc * 10
                     cs.ZIndex = cs.ZIndex + bc * 10
-                    local ct = cs:GetChildren()[1]
-                    ct.ZIndex = ct.ZIndex + bc * 10
-                    ct.ImageTransparency = bj.title_bar_transparency or 0
-                    aH(ct, bj.title_bar, 0)
                     local cu = false
                     cs.MouseButton1Click:Connect(
                         function()
@@ -1342,10 +1276,6 @@ function bd:AddWindow(bi, bj)
                     cy.Parent = c1 or c0
                     cy.PlaceholderText = cw
                     cy.ZIndex = cy.ZIndex + bc * 10
-                    local cz = cy:GetChildren()[1]
-                    cz.ZIndex = cz.ZIndex + bc * 10
-                    cz.ImageTransparency = bj.title_bar_transparency or 0
-                    aH(cz, bj.title_bar, 0)
                     cy.TextColor3 = Color3.new(1, 1, 1)
                     cy.PlaceholderColor3 = Color3.fromRGB(200, 200, 200)
                     cy.FocusLost:Connect(
@@ -1465,7 +1395,6 @@ function bd:AddWindow(bi, bj)
                     local bi = cQ:FindFirstChild("Title")
                     cQ.ZIndex = cQ.ZIndex + bc * 10
                     ax.ZIndex = ax.ZIndex + bc * 10
-                    ax:GetChildren()[1].ZIndex = ax:GetChildren()[1].ZIndex + bc * 10
                     bi.ZIndex = bi.ZIndex + bc * 10
                     local c1 = c0:FindFirstChild("TabScroller")
                     cQ.Parent = c1 or c0
@@ -1528,11 +1457,7 @@ function bd:AddWindow(bi, bj)
                     cZ.ZIndex = cZ.ZIndex + bc * 10
                     cF.ZIndex = cF.ZIndex + bc * 10
                     cX.Size = UDim2.new(0.5, -5, 0, 20)
-                    local c_ = cX:GetChildren()[3]
-                    c_.ZIndex = c_.ZIndex + bc * 10
-                    c_.ImageTransparency = bj.title_bar_transparency or 0
-                    aH(c_, bj.title_bar, 0)
-                    cY.ImageTransparency = bj.background_transparency or 0.1
+                    cY.ImageTransparency = bj.background_transparency or 0.3
                     aH(cY, bj.background, 0)
                     cZ.BackgroundTransparency = 1
                     cZ.Position = UDim2.new(0, 0, 0, 0)
@@ -1845,12 +1770,9 @@ function bd:AddWindow(bi, bj)
                     b5.ZIndex = b5.ZIndex + bc * 10
                     cZ.ZIndex = cZ.ZIndex + bc * 10
                     dA.ZIndex = dA.ZIndex + bc * 10
-                    b5:GetChildren()[1].ZIndex = b5:GetChildren()[1].ZIndex + bc * 10
                     local c1 = c0:FindFirstChild("TabScroller")
                     dz.Parent = c1 or c0
                     b5.Text = "      " .. dx
-                    local cp = b5:GetChildren()[1]
-                    cp.ImageColor3 = bj.main_color
                     local function dB()
                         local d7 = 25
                         for aw, aW in ipairs(cZ:GetChildren()) do
