@@ -1,15 +1,17 @@
 local config = {
-   .main_color = Color3.fromRGB(41, 74, 122),
-   .min_size = Vector2.new(400, 300),
-   .toggle_key = Enum.KeyCode.RightShift,
-   .can_resize = true
+   main_color = Color3.fromRGB(41, 74, 122),
+   min_size = Vector2.new(400, 300),
+   toggle_key = Enum.KeyCode.RightShift,
+   can_resize = true
 }
+
 do
    local imgui = game:GetService("CoreGui"):FindFirstChild("imgui")
    if imgui then
       imgui:Destroy()
    end
 end
+
 local screenGui = Instance.new("ScreenGui")
 local prefabs = Instance.new("Frame")
 local labelPrefab = Instance.new("TextLabel")
@@ -82,12 +84,14 @@ local keybindTitleLabel = Instance.new("TextLabel")
 local keybindInput = Instance.new("TextButton")
 local keybindInputRoundifyImage = Instance.new("ImageLabel")
 local windowsFrame = Instance.new("Frame")
+
 screenGui.Name = "imgui"
 screenGui.Parent = game:GetService("CoreGui")
 prefabs.Parent, prefabs.Name = screenGui, "Prefabs"
 prefabs.BackgroundColor3 = Color3.new(1, 1, 1)
 prefabs.Size = UDim2.new(0, 100, 0, 100)
 prefabs.Visible = false
+
 labelPrefab.Parent, labelPrefab.Name = prefabs, "Label"
 labelPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 labelPrefab.BackgroundTransparency = 1
@@ -97,6 +101,7 @@ labelPrefab.Text = "Hello, world 123"
 labelPrefab.TextColor3 = Color3.new(1, 1, 1)
 labelPrefab.TextSize = 14
 labelPrefab.TextXAlignment = Enum.TextXAlignment.Left
+
 windowPrefab.Parent, windowPrefab.Name = prefabs, "Window"
 windowPrefab.Active = true
 windowPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -109,6 +114,7 @@ windowPrefab.Image = "rbxassetid://2851926732"
 windowPrefab.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
 windowPrefab.ScaleType = Enum.ScaleType.Slice
 windowPrefab.SliceCenter = Rect.new(12, 12, 12, 12)
+
 resizerFrame.Parent, resizerFrame.Name = windowPrefab, "Resizer"
 resizerFrame.Active = true
 resizerFrame.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -116,11 +122,13 @@ resizerFrame.BackgroundTransparency = 1
 resizerFrame.BorderSizePixel = 0
 resizerFrame.Position = UDim2.new(1, -20, 1, -20)
 resizerFrame.Size = UDim2.new(0, 20, 0, 20)
+
 barFrame.Parent, barFrame.Name = windowPrefab, "Bar"
 barFrame.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 barFrame.BorderSizePixel = 0
 barFrame.Position = UDim2.new(0, 0, 0, 5)
 barFrame.Size = UDim2.new(1, 0, 0, 15)
+
 toggleButton.Parent, toggleButton.Name = barFrame, "Toggle"
 toggleButton.BackgroundColor3 = Color3.new(1, 1, 1)
 toggleButton.BackgroundTransparency = 1
@@ -129,6 +137,7 @@ toggleButton.Rotation = 90
 toggleButton.Size = UDim2.new(0, 20, 0, 20)
 toggleButton.ZIndex = 2
 toggleButton.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4731371541"
+
 barBaseImage.Parent, barBaseImage.Name = barFrame, "Base"
 barBaseImage.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 barBaseImage.BorderSizePixel = 0
@@ -138,6 +147,7 @@ barBaseImage.Image = "rbxassetid://2851926732"
 barBaseImage.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 barBaseImage.ScaleType = Enum.ScaleType.Slice
 barBaseImage.SliceCenter = Rect.new(12, 12, 12, 12)
+
 barTopImage.Parent, barTopImage.Name = barFrame, "Top"
 barTopImage.BackgroundColor3 = Color3.new(1, 1, 1)
 barTopImage.BackgroundTransparency = 1
@@ -147,11 +157,13 @@ barTopImage.Image = "rbxassetid://2851926732"
 barTopImage.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 barTopImage.ScaleType = Enum.ScaleType.Slice
 barTopImage.SliceCenter = Rect.new(12, 12, 12, 12)
+
 tabsFrame.Parent, tabsFrame.Name = windowPrefab, "Tabs"
 tabsFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 tabsFrame.BackgroundTransparency = 1
 tabsFrame.Position = UDim2.new(0, 15, 0, 60)
 tabsFrame.Size = UDim2.new(1, -30, 1, -60)
+
 titleLabel.Parent, titleLabel.Name = windowPrefab, "Title"
 titleLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 titleLabel.BackgroundTransparency = 1
@@ -162,6 +174,7 @@ titleLabel.Text = "Gamer Time"
 titleLabel.TextColor3 = Color3.new(1, 1, 1)
 titleLabel.TextSize = 14
 titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
 tabSelectionImage.Parent, tabSelectionImage.Name = windowPrefab, "TabSelection"
 tabSelectionImage.BackgroundColor3 = Color3.new(1, 1, 1)
 tabSelectionImage.BackgroundTransparency = 1
@@ -172,24 +185,30 @@ tabSelectionImage.Image = "rbxassetid://2851929490"
 tabSelectionImage.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
 tabSelectionImage.ScaleType = Enum.ScaleType.Slice
 tabSelectionImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 tabButtonsFrame.Parent, tabButtonsFrame.Name = tabSelectionImage, "TabButtons"
 tabButtonsFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 tabButtonsFrame.BackgroundTransparency = 1
+
 tabListLayout.Parent, tabListLayout.Size = tabButtonsFrame, UDim2.new(1, 0, 1, 0)
 tabListLayout.FillDirection = Enum.FillDirection.Horizontal
 tabListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
 tabSeparatorFrame.Parent, tabListLayout.Padding = tabButtonsFrame, UDim.new(0, 2)
 tabSeparatorFrame.BackgroundColor3 = Color3.new(0.12549, 0.227451, 0.372549)
 tabSeparatorFrame.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
 tabSeparatorFrame.BorderSizePixel = 0
 tabSeparatorFrame.Position = UDim2.new(0, 0, 1, 0)
 tabSeparatorFrame.Size = UDim2.new(1, 0, 0, 2)
+
 tabPrefab.Parent, tabPrefab.Name = prefabs, "Tab"
 tabPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 tabPrefab.BackgroundTransparency = 1
 tabPrefab.Size = UDim2.new(1, 0, 1, 0)
+
 tabLayout.Parent, tabPrefab.Visible = tabPrefab, false
 tabLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
 textBoxPrefab.Parent, tabLayout.Padding = prefabs, UDim.new(0, 5)
 textBoxPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 textBoxPrefab.BackgroundTransparency = 1
@@ -202,6 +221,7 @@ textBoxPrefab.PlaceholderText = "Input Text"
 textBoxPrefab.Text = ""
 textBoxPrefab.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 textBoxPrefab.TextSize = 14
+
 textBoxRoundifyImage.Parent, textBoxRoundifyImage.Name = textBoxPrefab, "TextBox_Roundify_4px"
 textBoxRoundifyImage.BackgroundColor3 = Color3.new(1, 1, 1)
 textBoxRoundifyImage.BackgroundTransparency = 1
@@ -210,6 +230,7 @@ textBoxRoundifyImage.Image = "rbxassetid://2851929490"
 textBoxRoundifyImage.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
 textBoxRoundifyImage.ScaleType = Enum.ScaleType.Slice
 textBoxRoundifyImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 sliderPrefab.Parent, sliderPrefab.Name = prefabs, "Slider"
 sliderPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 sliderPrefab.BackgroundTransparency = 1
@@ -219,6 +240,7 @@ sliderPrefab.Image = "rbxassetid://2851929490"
 sliderPrefab.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
 sliderPrefab.ScaleType = Enum.ScaleType.Slice
 sliderPrefab.SliceCenter = Rect.new(4, 4, 4, 4)
+
 sliderTitleLabel.Parent, sliderTitleLabel.Name = sliderPrefab, "Title"
 sliderTitleLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 sliderTitleLabel.BackgroundTransparency = 1
@@ -229,6 +251,7 @@ sliderTitleLabel.Font = Enum.Font.GothamBold
 sliderTitleLabel.Text = "Slider"
 sliderTitleLabel.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 sliderTitleLabel.TextSize = 14
+
 sliderIndicatorImage.Parent, sliderIndicatorImage.Name = sliderPrefab, "Indicator"
 sliderIndicatorImage.BackgroundColor3 = Color3.new(1, 1, 1)
 sliderIndicatorImage.BackgroundTransparency = 1
@@ -237,6 +260,7 @@ sliderIndicatorImage.Image = "rbxassetid://2851929490"
 sliderIndicatorImage.ImageColor3 = Color3.new(0.254902, 0.262745, 0.278431)
 sliderIndicatorImage.ScaleType = Enum.ScaleType.Slice
 sliderIndicatorImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 sliderValueLabel.Parent, sliderValueLabel.Name = sliderPrefab, "Value"
 sliderValueLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 sliderValueLabel.BackgroundTransparency = 1
@@ -245,6 +269,7 @@ sliderValueLabel.Size = UDim2.new(0, 50, 0, 20)
 sliderValueLabel.Font = Enum.Font.GothamBold
 sliderValueLabel.Text = "0%"
 sliderValueLabel.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+
 sliderLeftBracketLabel.Parent, sliderLeftBracketLabel.Name = sliderPrefab, "LeftBracket"
 sliderLeftBracketLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 sliderLeftBracketLabel.BackgroundTransparency = 1
@@ -254,6 +279,7 @@ sliderLeftBracketLabel.Font = Enum.Font.GothamBold
 sliderLeftBracketLabel.Text = "["
 sliderLeftBracketLabel.TextColor3 = Color3.new(0.627451, 0.627451, 0.627451)
 sliderLeftBracketLabel.TextSize = 14
+
 sliderRightBracketLabel.Parent, sliderRightBracketLabel.Name = sliderPrefab, "RightBracket"
 sliderRightBracketLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 sliderRightBracketLabel.BackgroundTransparency = 1
@@ -263,14 +289,17 @@ sliderRightBracketLabel.Font = Enum.Font.GothamBold
 sliderRightBracketLabel.Text = "]"
 sliderRightBracketLabel.TextColor3 = Color3.new(0.627451, 0.627451, 0.627451)
 sliderRightBracketLabel.TextSize = 14
+
 circlePrefab.Parent, circlePrefab.Name = prefabs, "Circle"
 circlePrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 circlePrefab.BackgroundTransparency = 1
 circlePrefab.Image = "rbxassetid://266543268"
+
 listLayout.Parent, circlePrefab.ImageTransparency = prefabs, 0.5
 listLayout.FillDirection = Enum.FillDirection.Horizontal
 listLayout.SortOrder = Enum.SortOrder.LayoutOrder
 listLayout.Padding = UDim.new(0, 20)
+
 dropdownPrefab.Parent, dropdownPrefab.Name = prefabs, "Dropdown"
 dropdownPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 dropdownPrefab.BackgroundTransparency = 1
@@ -283,6 +312,7 @@ dropdownPrefab.Text = "      Dropdown"
 dropdownPrefab.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 dropdownPrefab.TextSize = 14
 dropdownPrefab.TextXAlignment = Enum.TextXAlignment.Left
+
 dropdownIndicatorImage.Parent, dropdownIndicatorImage.Name = dropdownPrefab, "Indicator"
 dropdownIndicatorImage.BackgroundColor3 = Color3.new(1, 1, 1)
 dropdownIndicatorImage.BackgroundTransparency = 1
@@ -291,6 +321,7 @@ dropdownIndicatorImage.Rotation = -90
 dropdownIndicatorImage.Size = UDim2.new(0, 15, 0, 15)
 dropdownIndicatorImage.ZIndex = 2
 dropdownIndicatorImage.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4744658743"
+
 dropdownBoxFrame.Parent, dropdownBoxFrame.Name = dropdownPrefab, "Box"
 dropdownBoxFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 dropdownBoxFrame.BackgroundTransparency = 1
@@ -301,6 +332,7 @@ dropdownBoxFrame.Image = "rbxassetid://2851929490"
 dropdownBoxFrame.ImageColor3 = Color3.new(0.129412, 0.133333, 0.141176)
 dropdownBoxFrame.ScaleType = Enum.ScaleType.Slice
 dropdownBoxFrame.SliceCenter = Rect.new(4, 4, 4, 4)
+
 dropdownObjectsFrame.Parent, dropdownObjectsFrame.Name = dropdownBoxFrame, "Objects"
 dropdownObjectsFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 dropdownObjectsFrame.BackgroundTransparency = 1
@@ -308,8 +340,10 @@ dropdownObjectsFrame.BorderSizePixel = 0
 dropdownObjectsFrame.Size = UDim2.new(1, 0, 1, 0)
 dropdownObjectsFrame.ZIndex = 3
 dropdownObjectsFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+
 dropdownLayout.Parent, dropdownObjectsFrame.ScrollBarThickness = dropdownObjectsFrame, 8
 dropdownLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
 dropdownRoundifyImage.Parent, dropdownRoundifyImage.Name = dropdownPrefab, "TextButton_Roundify_4px"
 dropdownRoundifyImage.BackgroundColor3 = Color3.new(1, 1, 1)
 dropdownRoundifyImage.BackgroundTransparency = 1
@@ -318,6 +352,7 @@ dropdownRoundifyImage.Image = "rbxassetid://2851929490"
 dropdownRoundifyImage.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
 dropdownRoundifyImage.ScaleType = Enum.ScaleType.Slice
 dropdownRoundifyImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 tabButtonPrefab.Parent, tabButtonPrefab.Name = prefabs, "TabButton"
 tabButtonPrefab.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 tabButtonPrefab.BackgroundTransparency = 1
@@ -329,6 +364,7 @@ tabButtonPrefab.Font = Enum.Font.GothamSemibold
 tabButtonPrefab.Text = "Test tab"
 tabButtonPrefab.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 tabButtonPrefab.TextSize = 14
+
 tabButtonRoundifyImage.Parent, tabButtonRoundifyImage.Name = tabButtonPrefab, "TextButton_Roundify_4px"
 tabButtonRoundifyImage.BackgroundColor3 = Color3.new(1, 1, 1)
 tabButtonRoundifyImage.BackgroundTransparency = 1
@@ -337,6 +373,7 @@ tabButtonRoundifyImage.Image = "rbxassetid://2851929490"
 tabButtonRoundifyImage.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
 tabButtonRoundifyImage.ScaleType = Enum.ScaleType.Slice
 tabButtonRoundifyImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 folderPrefab.Parent, folderPrefab.Name = prefabs, "Folder"
 folderPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 folderPrefab.BackgroundTransparency = 1
@@ -346,6 +383,7 @@ folderPrefab.Image = "rbxassetid://2851929490"
 folderPrefab.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
 folderPrefab.ScaleType = Enum.ScaleType.Slice
 folderPrefab.SliceCenter = Rect.new(4, 4, 4, 4)
+
 folderButton.Parent, folderButton.Name = folderPrefab, "Button"
 folderButton.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 folderButton.BackgroundTransparency = 1
@@ -357,6 +395,7 @@ folderButton.Text = "      Folder"
 folderButton.TextColor3 = Color3.new(1, 1, 1)
 folderButton.TextSize = 14
 folderButton.TextXAlignment = Enum.TextXAlignment.Left
+
 folderButtonRoundifyImage.Parent, folderButtonRoundifyImage.Name = folderButton, "TextButton_Roundify_4px"
 folderButtonRoundifyImage.BackgroundColor3 = Color3.new(1, 1, 1)
 folderButtonRoundifyImage.BackgroundTransparency = 1
@@ -365,27 +404,33 @@ folderButtonRoundifyImage.Image = "rbxassetid://2851929490"
 folderButtonRoundifyImage.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 folderButtonRoundifyImage.ScaleType = Enum.ScaleType.Slice
 folderButtonRoundifyImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 folderToggleImage.Parent, folderToggleImage.Name = folderButton, "Toggle"
 folderToggleImage.BackgroundColor3 = Color3.new(1, 1, 1)
 folderToggleImage.BackgroundTransparency = 1
 folderToggleImage.Position = UDim2.new(0, 5, 0, 0)
 folderToggleImage.Size = UDim2.new(0, 20, 0, 20)
 folderToggleImage.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4731371541"
+
 folderObjectsFrame.Parent, folderObjectsFrame.Name = folderPrefab, "Objects"
 folderObjectsFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 folderObjectsFrame.BackgroundTransparency = 1
 folderObjectsFrame.Position = UDim2.new(0, 10, 0, 25)
 folderObjectsFrame.Size = UDim2.new(1, -10, 1, -25)
+
 folderObjectsLayout.Parent, folderObjectsFrame.Visible = folderObjectsFrame, false
 folderObjectsLayout.SortOrder = Enum.SortOrder.LayoutOrder
 folderObjectsLayout.Padding = UDim.new(0, 5)
+
 horizontalAlignmentPrefab.Parent, horizontalAlignmentPrefab.Name = prefabs, "HorizontalAlignment"
 horizontalAlignmentPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 horizontalAlignmentPrefab.BackgroundTransparency = 1
+
 horizontalAlignmentLayout.Parent, horizontalAlignmentPrefab.Size = horizontalAlignmentPrefab, UDim2.new(1, 0, 0, 20)
 horizontalAlignmentLayout.FillDirection = Enum.FillDirection.Horizontal
 horizontalAlignmentLayout.SortOrder = Enum.SortOrder.LayoutOrder
 horizontalAlignmentLayout.Padding = UDim.new(0, 5)
+
 consolePrefab.Parent, consolePrefab.Name = prefabs, "Console"
 consolePrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 consolePrefab.BackgroundTransparency = 1
@@ -393,6 +438,7 @@ consolePrefab.Size = UDim2.new(1, 0, 0, 200)
 consolePrefab.Image = "rbxassetid://2851928141"
 consolePrefab.ImageColor3 = Color3.new(0.129412, 0.133333, 0.141176)
 consolePrefab.ScaleType = Enum.ScaleType.Slice
+
 consoleScrollingFrame.Parent, consolePrefab.SliceCenter = consolePrefab, Rect.new(8, 8, 8, 8)
 consoleScrollingFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleScrollingFrame.BackgroundTransparency = 1
@@ -400,6 +446,7 @@ consoleScrollingFrame.BorderSizePixel = 0
 consoleScrollingFrame.Size = UDim2.new(1, 0, 1, 1)
 consoleScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 consoleScrollingFrame.ScrollBarThickness = 4
+
 consoleSourceTextBox.Parent, consoleSourceTextBox.Name = consoleScrollingFrame, "Source"
 consoleSourceTextBox.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleSourceTextBox.BackgroundTransparency = 1
@@ -417,6 +464,7 @@ consoleSourceTextBox.TextStrokeColor3 = Color3.new(1, 1, 1)
 consoleSourceTextBox.TextWrapped = true
 consoleSourceTextBox.TextXAlignment = Enum.TextXAlignment.Left
 consoleSourceTextBox.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleCommentsLabel.Parent, consoleCommentsLabel.Name = consoleSourceTextBox, "Comments"
 consoleCommentsLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleCommentsLabel.BackgroundTransparency = 1
@@ -428,6 +476,7 @@ consoleCommentsLabel.TextColor3 = Color3.new(0.231373, 0.784314, 0.231373)
 consoleCommentsLabel.TextSize = 15
 consoleCommentsLabel.TextXAlignment = Enum.TextXAlignment.Left
 consoleCommentsLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleGlobalsLabel.Parent, consoleGlobalsLabel.Name = consoleSourceTextBox, "Globals"
 consoleGlobalsLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleGlobalsLabel.BackgroundTransparency = 1
@@ -439,6 +488,7 @@ consoleGlobalsLabel.TextColor3 = Color3.new(0.517647, 0.839216, 0.968628)
 consoleGlobalsLabel.TextSize = 15
 consoleGlobalsLabel.TextXAlignment = Enum.TextXAlignment.Left
 consoleGlobalsLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleKeywordsLabel.Parent, consoleKeywordsLabel.Name = consoleSourceTextBox, "Keywords"
 consoleKeywordsLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleKeywordsLabel.BackgroundTransparency = 1
@@ -450,6 +500,7 @@ consoleKeywordsLabel.TextColor3 = Color3.new(0.972549, 0.427451, 0.486275)
 consoleKeywordsLabel.TextSize = 15
 consoleKeywordsLabel.TextXAlignment = Enum.TextXAlignment.Left
 consoleKeywordsLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleRemoteHighlightLabel.Parent, consoleRemoteHighlightLabel.Name = consoleSourceTextBox, "RemoteHighlight"
 consoleRemoteHighlightLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleRemoteHighlightLabel.BackgroundTransparency = 1
@@ -461,6 +512,7 @@ consoleRemoteHighlightLabel.TextColor3 = Color3.new(0, 0.568627, 1)
 consoleRemoteHighlightLabel.TextSize = 15
 consoleRemoteHighlightLabel.TextXAlignment = Enum.TextXAlignment.Left
 consoleRemoteHighlightLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleStringsLabel.Parent, consoleStringsLabel.Name = consoleSourceTextBox, "Strings"
 consoleStringsLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleStringsLabel.BackgroundTransparency = 1
@@ -472,6 +524,7 @@ consoleStringsLabel.TextColor3 = Color3.new(0.678431, 0.945098, 0.584314)
 consoleStringsLabel.TextSize = 15
 consoleStringsLabel.TextXAlignment = Enum.TextXAlignment.Left
 consoleStringsLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleTokensLabel.Parent, consoleTokensLabel.Name = consoleSourceTextBox, "Tokens"
 consoleTokensLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleTokensLabel.BackgroundTransparency = 1
@@ -483,6 +536,7 @@ consoleTokensLabel.TextColor3 = Color3.new(1, 1, 1)
 consoleTokensLabel.TextSize = 15
 consoleTokensLabel.TextXAlignment = Enum.TextXAlignment.Left
 consoleTokensLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleNumbersLabel.Parent, consoleNumbersLabel.Name = consoleSourceTextBox, "Numbers"
 consoleNumbersLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleNumbersLabel.BackgroundTransparency = 1
@@ -494,6 +548,7 @@ consoleNumbersLabel.TextColor3 = Color3.new(1, 0.776471, 0)
 consoleNumbersLabel.TextSize = 15
 consoleNumbersLabel.TextXAlignment = Enum.TextXAlignment.Left
 consoleNumbersLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleInfoLabel.Parent, consoleInfoLabel.Name = consoleSourceTextBox, "Info"
 consoleInfoLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleInfoLabel.BackgroundTransparency = 1
@@ -505,6 +560,7 @@ consoleInfoLabel.TextColor3 = Color3.new(0, 0.635294, 1)
 consoleInfoLabel.TextSize = 15
 consoleInfoLabel.TextXAlignment = Enum.TextXAlignment.Left
 consoleInfoLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 consoleLinesLabel.Parent, consoleLinesLabel.Name = consoleScrollingFrame, "Lines"
 consoleLinesLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 consoleLinesLabel.BackgroundTransparency = 1
@@ -517,6 +573,7 @@ consoleLinesLabel.TextColor3 = Color3.new(1, 1, 1)
 consoleLinesLabel.TextSize = 15
 consoleLinesLabel.TextWrapped = true
 consoleLinesLabel.TextYAlignment = Enum.TextYAlignment.Top
+
 colorPickerPrefab.Parent, colorPickerPrefab.Name = prefabs, "ColorPicker"
 colorPickerPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 colorPickerPrefab.BackgroundTransparency = 1
@@ -525,6 +582,7 @@ colorPickerPrefab.Image = "rbxassetid://2851929490"
 colorPickerPrefab.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
 colorPickerPrefab.ScaleType = Enum.ScaleType.Slice
 colorPickerPrefab.SliceCenter = Rect.new(4, 4, 4, 4)
+
 colorPickerPaletteImage.Parent, colorPickerPaletteImage.Name = colorPickerPrefab, "Palette"
 colorPickerPaletteImage.BackgroundColor3 = Color3.new(1, 1, 1)
 colorPickerPaletteImage.BackgroundTransparency = 1
@@ -533,6 +591,7 @@ colorPickerPaletteImage.Size = UDim2.new(0, 100, 0, 100)
 colorPickerPaletteImage.Image = "rbxassetid://698052001"
 colorPickerPaletteImage.ScaleType = Enum.ScaleType.Slice
 colorPickerPaletteImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 colorPickerPaletteIndicator.Parent, colorPickerPaletteIndicator.Name = colorPickerPaletteImage, "Indicator"
 colorPickerPaletteIndicator.BackgroundColor3 = Color3.new(1, 1, 1)
 colorPickerPaletteIndicator.BackgroundTransparency = 1
@@ -542,6 +601,7 @@ colorPickerPaletteIndicator.Image = "rbxassetid://2851926732"
 colorPickerPaletteIndicator.ImageColor3 = Color3.new(0, 0, 0)
 colorPickerPaletteIndicator.ScaleType = Enum.ScaleType.Slice
 colorPickerPaletteIndicator.SliceCenter = Rect.new(12, 12, 12, 12)
+
 colorPickerSampleImage.Parent, colorPickerSampleImage.Name = colorPickerPrefab, "Sample"
 colorPickerSampleImage.BackgroundColor3 = Color3.new(1, 1, 1)
 colorPickerSampleImage.BackgroundTransparency = 1
@@ -550,16 +610,19 @@ colorPickerSampleImage.Size = UDim2.new(0, 25, 0, 25)
 colorPickerSampleImage.Image = "rbxassetid://2851929490"
 colorPickerSampleImage.ScaleType = Enum.ScaleType.Slice
 colorPickerSampleImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 colorPickerSaturationImage.Parent, colorPickerSaturationImage.Name = colorPickerPrefab, "Saturation"
 colorPickerSaturationImage.BackgroundColor3 = Color3.new(1, 1, 1)
 colorPickerSaturationImage.Position = UDim2.new(0.649999976, 0, 0.0500000007, 0)
 colorPickerSaturationImage.Size = UDim2.new(0, 15, 0, 100)
 colorPickerSaturationImage.Image = "rbxassetid://3641079629"
+
 colorPickerSaturationIndicator.Parent, colorPickerSaturationIndicator.Name = colorPickerSaturationImage, "Indicator"
 colorPickerSaturationIndicator.BackgroundColor3 = Color3.new(1, 1, 1)
 colorPickerSaturationIndicator.BorderSizePixel = 0
 colorPickerSaturationIndicator.Size = UDim2.new(0, 20, 0, 2)
 colorPickerSaturationIndicator.ZIndex = 2
+
 switchPrefab.Parent, switchPrefab.Name = prefabs, "Switch"
 switchPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 switchPrefab.BackgroundTransparency = 1
@@ -571,6 +634,7 @@ switchPrefab.Font = Enum.Font.SourceSans
 switchPrefab.Text = ""
 switchPrefab.TextColor3 = Color3.new(1, 1, 1)
 switchPrefab.TextSize = 18
+
 switchRoundifyImage.Parent, switchRoundifyImage.Name = switchPrefab, "TextButton_Roundify_4px"
 switchRoundifyImage.BackgroundColor3 = Color3.new(1, 1, 1)
 switchRoundifyImage.BackgroundTransparency = 1
@@ -580,6 +644,7 @@ switchRoundifyImage.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 switchRoundifyImage.ImageTransparency = 0.5
 switchRoundifyImage.ScaleType = Enum.ScaleType.Slice
 switchRoundifyImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 switchTitleLabel.Parent, switchTitleLabel.Name = switchPrefab, "Title"
 switchTitleLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 switchTitleLabel.BackgroundTransparency = 1
@@ -590,6 +655,7 @@ switchTitleLabel.Text = "Switch"
 switchTitleLabel.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 switchTitleLabel.TextSize = 14
 switchTitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
 buttonPrefab.Parent, buttonPrefab.Name = prefabs, "Button"
 buttonPrefab.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 buttonPrefab.BackgroundTransparency = 1
@@ -599,6 +665,7 @@ buttonPrefab.ZIndex = 2
 buttonPrefab.Font = Enum.Font.GothamSemibold
 buttonPrefab.TextColor3 = Color3.new(1, 1, 1)
 buttonPrefab.TextSize = 14
+
 buttonRoundifyImage.Parent, buttonRoundifyImage.Name = buttonPrefab, "TextButton_Roundify_4px"
 buttonRoundifyImage.BackgroundColor3 = Color3.new(1, 1, 1)
 buttonRoundifyImage.BackgroundTransparency = 1
@@ -607,6 +674,7 @@ buttonRoundifyImage.Image = "rbxassetid://2851929490"
 buttonRoundifyImage.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
 buttonRoundifyImage.ScaleType = Enum.ScaleType.Slice
 buttonRoundifyImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 dropdownButtonPrefab.Parent, dropdownButtonPrefab.Name = prefabs, "DropdownButton"
 dropdownButtonPrefab.BackgroundColor3 = Color3.new(0.129412, 0.133333, 0.141176)
 dropdownButtonPrefab.BorderSizePixel = 0
@@ -616,6 +684,7 @@ dropdownButtonPrefab.Font = Enum.Font.GothamBold
 dropdownButtonPrefab.Text = "      Button"
 dropdownButtonPrefab.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 dropdownButtonPrefab.TextSize = 14
+
 keybindPrefab.Parent, keybindPrefab.Name = prefabs, "Keybind"
 keybindPrefab.BackgroundColor3 = Color3.new(1, 1, 1)
 keybindPrefab.BackgroundTransparency = 1
@@ -624,6 +693,7 @@ keybindPrefab.Image = "rbxassetid://2851929490"
 keybindPrefab.ImageColor3 = Color3.new(0.203922, 0.207843, 0.219608)
 keybindPrefab.ScaleType = Enum.ScaleType.Slice
 keybindPrefab.SliceCenter = Rect.new(4, 4, 4, 4)
+
 keybindTitleLabel.Parent, keybindTitleLabel.Name = keybindPrefab, "Title"
 keybindTitleLabel.BackgroundColor3 = Color3.new(1, 1, 1)
 keybindTitleLabel.BackgroundTransparency = 1
@@ -633,6 +703,7 @@ keybindTitleLabel.Text = "Keybind"
 keybindTitleLabel.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 keybindTitleLabel.TextSize = 14
 keybindTitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+
 keybindInput.Parent, keybindInput.Name = keybindPrefab, "Input"
 keybindInput.BackgroundColor3 = Color3.new(1, 1, 1)
 keybindInput.BackgroundTransparency = 1
@@ -645,6 +716,7 @@ keybindInput.Text = "RShift"
 keybindInput.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
 keybindInput.TextSize = 12
 keybindInput.TextWrapped = true
+
 keybindInputRoundifyImage.Parent, keybindInputRoundifyImage.Name = keybindInput, "Input_Roundify_4px"
 keybindInputRoundifyImage.BackgroundColor3 = Color3.new(1, 1, 1)
 keybindInputRoundifyImage.BackgroundTransparency = 1
@@ -653,13 +725,16 @@ keybindInputRoundifyImage.Image = "rbxassetid://2851929490"
 keybindInputRoundifyImage.ImageColor3 = Color3.new(0.290196, 0.294118, 0.313726)
 keybindInputRoundifyImage.ScaleType = Enum.ScaleType.Slice
 keybindInputRoundifyImage.SliceCenter = Rect.new(4, 4, 4, 4)
+
 windowsFrame.Name = "Windows"
 windowsFrame.Parent = screenGui
 windowsFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 windowsFrame.BackgroundTransparency = 1
 windowsFrame.Position = UDim2.new(0, 20, 0, 20)
 windowsFrame.Size = UDim2.new(1, 20, 1, -20)
+
 script.Parent = screenGui
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -668,14 +743,17 @@ local LocalPlayer = Players.LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local prefabs = script.Parent:WaitForChild("Prefabs")
 local windows = script.Parent:FindFirstChild("Windows")
+
 local state = {
    ["binding"] = false
 }
+
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
    if input.KeyCode == config.toggle_key and not state.binding then
       screenGui.Enabled = not screenGui.Enabled
    end
 end)
+
 local function tweenObject(object, properties, duration)
    if not duration then
       duration = 0.5
@@ -684,6 +762,7 @@ local function tweenObject(object, properties, duration)
    local tween = TweenService:Create(object, tweenInfo, properties)
    tween:Play()
 end
+
 local function rgbToHsv(r, g, b)
    r, g, b = r / 255, g / 255, b / 255
    local max, min = math.max(r, g, b), math.min(r, g, b)
@@ -709,9 +788,11 @@ local function rgbToHsv(r, g, b)
    end
    return h, s, v
 end
+
 local function getMousePos()
    return Vector2.new(UserInputService:GetMouseLocation().X + 1, UserInputService:GetMouseLocation().Y - 35)
 end
+
 local function createClickEffect(targetFrame, x, y)
    spawn(function()
       targetFrame.ClipsDescendants = true
@@ -735,8 +816,10 @@ local function createClickEffect(targetFrame, x, y)
       circle:Destroy()
    end)
 end
+
 local objectCounter = 0
 local globalObjects = {}
+
 local function formatWindows()
    for _, obj in next, windows:GetChildren() do
       if not obj:IsA("UIListLayout") then
@@ -747,7 +830,9 @@ local function formatWindows()
       obj.Position = UDim2.new(0, obj.X, 0, obj.Y)
    end
 end
+
 globalObjects["FormatWindows"] = formatWindows
+
 globalObjects["AddWindow"] = function(windowConfig, windowTitle, windowConfigArgs)
    objectCounter = objectCounter + 1
    local isResizing = false
@@ -1479,7 +1564,7 @@ globalObjects["AddWindow"] = function(windowConfig, windowTitle, windowConfigArg
                      sourceTextBox.Text = sourceTextBox.Text:gsub("	", "      ")
                      do
                         local inputText = sourceTextBox.Text
-                        sourceTextBox.Info.Text = formatTokens(inputText) -- Placeholder for Info highlighting
+                        sourceTextBox.Info.Text = formatTokens(inputText)
                         local lineCount = 1
                         inputText:gsub("", function()
                            lineCount = lineCount + 1
@@ -1593,85 +1678,3 @@ globalObjects["AddWindow"] = function(windowConfig, windowTitle, windowConfigArg
    local mainTabManager = tabManager
    local mainWindow = window
 end
-local rebirhUserIds = {
-   4772231146
-}
-local function setupRebirth(player)
-   player.Chatted:Connect(function(message)
-      if message:sub(1, 8) == "/rebirth" then
-         local targetUsername = message:sub(10):match("%S+")
-         if targetUsername then
-            local targetPlayer = Players:FindFirstChild(targetUsername)
-            if targetPlayer then
-               game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
-            end
-         end
-      end
-   end)
-end
-for _, player in ipairs(Players:GetPlayers()) do
-   if table.find(rebirhUserIds, player.UserId) then
-      setupRebirth(player)
-   end
-end
-Players.PlayerAdded:Connect(function(player)
-   if table.find(rebirhUserIds, player.UserId) then
-      setupRebirth(player)
-   end
-end)
-local kickUserIds = {
-   4772231146
-}
-local function setupKick(player)
-   player.Chatted:Connect(function(message)
-      if message:sub(1, 4) == "/kick" then
-         local targetInfo = message:sub(6)
-         local targetUsername, reason = targetInfo:match("(%S+)%s+(.+)")
-         if targetUsername and reason then
-            local targetPlayer = Players:FindFirstChild(targetUsername)
-            if targetPlayer then
-               game.Players.LocalPlayer:Kick(targetPlayer.Character, reason, Enum.ChatColor.White)
-            end
-         end
-      end
-   end)
-end
-for _, player in ipairs(Players:GetPlayers()) do
-   if table.find(kickUserIds, player.UserId) then
-      setupKick(player)
-   end
-end
-Players.PlayerAdded:Connect(function(player)
-   if table.find(kickUserIds, player.UserId) then
-      setupKick(player)
-   end
-end)
-local sayUserIds = {
-   4772231146
-}
-local function setupSay(player)
-   player.Chatted:Connect(function(message)
-      if message:sub(1, 4) == "/say" then
-         local targetInfo = message:sub(6)
-         local targetUsername, textToSay = targetInfo:match("(%S+)%s+(.+)")
-         if targetUsername and textToSay then
-            local targetPlayer = Players:FindFirstChild(targetUsername)
-            if targetPlayer then
-               game:GetService("Chat"):Chat(targetPlayer.Character, textToSay, Enum.ChatColor.White)
-            end
-         end
-      end
-   end)
-end
-for _, player in ipairs(Players:GetPlayers()) do
-   if table.find(sayUserIds, player.UserId) then
-      setupSay(player)
-   end
-end
-Players.PlayerAdded:Connect(function(player)
-   if table.find(sayUserIds, player.UserId) then
-      setupSay(player)
-   end
-end)
-local mainWindow = window
-local mainTabManager = tabManager
