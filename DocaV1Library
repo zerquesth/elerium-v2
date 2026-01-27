@@ -1439,7 +1439,6 @@ globalObjects["AddWindow"] = function(windowConfig, windowTitle, windowConfigArg
                   end)
                   inputText = inputText:gsub("%S+", function(word)
                      if replacements[word] ~= nil then return word end
-                     return " ":rep(#word)
                   end)
                end
                local function formatNumbers(str)
@@ -1549,8 +1548,7 @@ globalObjects["AddWindow"] = function(windowConfig, windowTitle, windowConfigArg
                         end)
                         linesLabel.Text = ""
                         for i = 1, lineCount, 1 do
-                           linesLabel.Text = linesLabel.Text..i.."
-"
+                           linesLabel.Text = linesLabel.Text..i..""
                         end
                         sourceTextBox.CanvasSize = UDim2.new(0, 0, lineCount * 0.153846154, 0)
                      end
